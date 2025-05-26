@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LIGOJU Admin - Dashboard</title>
+  <link rel="stylesheet" href="/frontend/admin/back.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- Sidebar de navegação -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <img src="/frontend/img/logo.png" alt="Logo LIGOJU" class="logo">
+        <div class="site-name">
+          <h1>LIGOJU</h1>
+          <h2>Administração</h2>
+        </div>
+      </div>
+      
+      <nav class="admin-nav">
+        <ul>
+          <li class="active"><a href="dashboard.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+          <li><a href="eventos.html"><i class="icon-calendar"></i> Eventos</a></li>
+          <li><a href="noticias.html"><i class="icon-news"></i> Notícias</a></li>
+          <li><a href="academias.html"><i class="icon-building"></i> Academias</a></li>
+          <li><a href="/index.html" target="_blank"><i class="icon-globe"></i> Ver Site</a></li>
+          <li class="logout"><a href="login.html"><i class="icon-logout"></i> Sair</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+      <header class="admin-header">
+        <h2>Dashboard</h2>
+        <div class="user-info">
+          <span>Olá, Administrador</span>
+          <img src="/frontend/img/user-avatar.png" alt="Avatar" class="avatar">
+        </div>
+      </header>
+
+      <!-- Cards informativos -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-icon eventos-icon"></div>
+          <div class="stat-info">
+            <h3>Eventos</h3>
+            <p class="stat-number">8</p>
+            <p class="stat-detail">2 eventos próximos</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon noticias-icon"></div>
+          <div class="stat-info">
+            <h3>Notícias</h3>
+            <p class="stat-number">12</p>
+            <p class="stat-detail">3 esta semana</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon academias-icon"></div>
+          <div class="stat-info">
+            <h3>Academias</h3>
+            <p class="stat-number">15</p>
+            <p class="stat-detail">2 novas este mês</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumo dos últimos conteúdos -->
+      <div class="content-overview">
+        <div class="content-card">
+          <h3>Últimos Eventos</h3>
+          <table class="content-table">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Data</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Campeonato Goiano de Judô</td>
+                <td>20/05/2025</td>
+                <td>
+                  <a href="eventos-editar.html?id=1" class="btn-edit">Editar</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Festival Infantil de Judô</td>
+                <td>05/06/2025</td>
+                <td>
+                  <a href="eventos-editar.html?id=2" class="btn-edit">Editar</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="eventos.html" class="view-all">Ver todos os eventos →</a>
+        </div>
+
+        <div class="content-card">
+          <h3>Últimas Notícias</h3>
+          <table class="content-table">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Data</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Judocas brilham em torneio nacional</td>
+                <td>18/04/2025</td>
+                <td>
+                  <a href="noticias-editar.html?id=1" class="btn-edit">Editar</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Novos projetos sociais com Judô</td>
+                <td>15/04/2025</td>
+                <td>
+                  <a href="noticias-editar.html?id=2" class="btn-edit">Editar</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="noticias.html" class="view-all">Ver todas as notícias →</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

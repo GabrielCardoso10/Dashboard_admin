@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LIGOJU Admin - Gerenciar Eventos</title>
+  <link rel="stylesheet" href="/frontend/admin/back.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- Sidebar de navegação -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <img src="/frontend/img/logo.png" alt="Logo LIGOJU" class="logo">
+        <div class="site-name">
+          <h1>LIGOJU</h1>
+          <h2>Administração</h2>
+        </div>
+      </div>
+      
+      <nav class="admin-nav">
+        <ul>
+          <li><a href="/frontend/admin/dashboard.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+          <li class="active"><a href="/frontend/admin/eventos.html"><i class="icon-calendar"></i> Eventos</a></li>
+          <li><a href="/frontend/admin/noticias.html"><i class="icon-news"></i> Notícias</a></li>
+          <li><a href="/frontend/admin/"><i class="icon-building"></i> Academias</a></li>
+          <li><a href="/frontend/index.html" target="_blank"><i class="icon-globe"></i> Ver Site</a></li>
+          <li class="logout"><a href="login.html"><i class="icon-logout"></i> Sair</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+      <header class="admin-header">
+        <h2>Gerenciar Eventos</h2>
+        <div class="user-info">
+          <span>Olá, Administrador</span>
+          <img src="/frontend/img/user-avatar.png" alt="Avatar" class="avatar">
+        </div>
+      </header>
+
+      <!-- Ações de controle -->
+      <div class="actions-bar">
+        <button class="btn-primary" id="btn-novo-evento">Adicionar Novo Evento</button>
+        <div class="search-box">
+          <input type="text" placeholder="Buscar eventos..." id="busca-eventos">
+          <button class="btn-search">Buscar</button>
+        </div>
+      </div>
+
+      <!-- Lista de Eventos -->
+      <div class="content-list">
+        <table class="content-table full-width">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Data</th>
+              <th>Local</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Campeonato Goiano de Judô</td>
+              <td>20/05/2025</td>
+              <td>Goiânia-GO</td>
+              <td><span class="status-badge upcoming">Próximo</span></td>
+              <td class="actions-cell">
+                <a href="eventos-editar.html?id=1" class="btn-edit">Editar</a>
+                <button class="btn-delete" data-id="1">Excluir</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Festival Infantil de Judô</td>
+              <td>05/06/2025</td>
+              <td>Aparecida-GO</td>
+              <td><span class="status-badge upcoming">Próximo</span></td>
+              <td class="actions-cell">
+                <a href="eventos-editar.html?id=2" class="btn-edit">Editar</a>
+                <button class="btn-delete" data-id="2">Excluir</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Copa Centro-Oeste de Judô</td>
+              <td>15/07/2025</td>
+              <td>Brasília-DF</td>
+              <td><span class="status-badge planned">Planejado</span></td>
+              <td class="actions-cell">
+                <a href="eventos-editar.html?id=3" class="btn-edit">Editar</a>
+                <button class="btn-delete" data-id="3">Excluir</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Torneio de Graduação</td>
+              <td>10/03/2025</td>
+              <td>Anápolis-GO</td>
+              <td><span class="status-badge finished">Finalizado</span></td>
+              <td class="actions-cell">
+                <a href="eventos-editar.html?id=4" class="btn-edit">Editar</a>
+                <button class="btn-delete" data-id="4">Excluir</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <button class="btn-page active">1</button>
+          <button class="btn-page">2</button>
+          <button class="btn-next">Próximo →</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal para adicionar/editar evento -->
+  <div class="modal" id="modal-evento">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Adicionar Novo Evento</h3>
+        <button class="btn-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-evento">
+          <div class="form-group">
+            <label for="titulo">Título do Evento</label>
+            <input type="text" id="titulo" name="titulo" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="local">Local</label>
+            <input type="text" id="local" name="local" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="5"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="imagem">Imagem do Banner</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+          </div>
+          
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="upcoming">Próximo</option>
+              <option value="planned">Planejado</option>
+              <option value="finished">Finalizado</option>
+            </select>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelar">Cancelar</button>
+            <button type="submit" class="btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/frontend/js/admin/eventos.js"></script>
+</body>
+</html>
